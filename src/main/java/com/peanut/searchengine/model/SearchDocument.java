@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class SearchDocument {
 
-    private String id;
+    private Long id;
     private String serviceName;
     private String title;
     private String content;
