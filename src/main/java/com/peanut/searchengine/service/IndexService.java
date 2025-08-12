@@ -23,6 +23,7 @@ public class IndexService {
                         .content(dto.getContent())
                         .author(dto.getNickname())
                         .createdAt(dto.getCreatedAt())
+                        .isDeleted(dto.getIsDeleted())
                         .build())
                 .toList();
 
@@ -35,6 +36,7 @@ public class IndexService {
 
         return indexStore.values().stream()
                 .filter(doc -> serviceName == null || doc.getServiceName().equalsIgnoreCase(serviceName))
+                .filter(doc -> !Boolean.TRUE.equals(doc.getIsDeleted()))
                 .filter(doc -> title == null || doc.getTitle().toLowerCase().contains(title.toLowerCase()))
                 .filter(doc -> content == null || doc.getContent().toLowerCase().contains(content.toLowerCase()))
                 .filter(doc -> author == null || doc.getAuthor().toLowerCase().contains(author.toLowerCase()))
@@ -43,6 +45,7 @@ public class IndexService {
                         .title(doc.getTitle())
                         .content(doc.getContent())
                         .nickname(doc.getAuthor())
+                        .createdAt(doc.getCreatedAt())
                         .build())
                 .toList();
     }
