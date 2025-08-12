@@ -19,6 +19,7 @@ public class SearchDocument {
     private String content;
     private String author;
     private LocalDateTime createdAt;
+    private Boolean isDeleted;
 
 }
 

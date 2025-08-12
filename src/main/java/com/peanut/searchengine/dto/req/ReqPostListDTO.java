@@ -13,4 +13,5 @@ public class ReqPostListDTO {
     private String content;
     private String nickname;
     private LocalDateTime createdAt;
+    private Boolean isDeleted;
 }
